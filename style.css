@@ -1,0 +1,21 @@
+body{
+    background-color: lightblue;
+}
+#forSearch{
+    width: 250px;
+    background-color: lightcoral;
+    padding: 10px;
+    border-radius: 5px;
+}
+#forId{
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    padding: 5px;
+}
+#but{
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid rgb(105, 102, 102);
+    padding: 3px;
+}
