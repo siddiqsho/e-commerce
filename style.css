@@ -1,21 +1,36 @@
 body{
-    background-color: lightblue;
+    background-color:lightgray;
 }
-#forSearch{
+.parent-cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.card{
+    box-sizing: border-box;
     width: 250px;
-    background-color: lightcoral;
-    padding: 10px;
-    border-radius: 5px;
-}
-#forId{
-    border-radius: 5px;
-    outline: none;
-    border: none;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
     padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
-#but{
-    border-radius: 5px;
-    outline: none;
-    border: 2px solid rgb(105, 102, 102);
-    padding: 3px;
+img{
+   width: 200px;
+}
+h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 17px;
+}
+p{
+    color: green;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.for-card{
+ text-align: start;
 }
