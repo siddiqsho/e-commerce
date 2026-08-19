@@ -1,13 +1,15 @@
-body{
-    background-color:lightgray;
+body {
+    background-color: lightgray;
 }
-.parent-cards{
+
+.parent-cards {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 25px;
     justify-content: center;
 }
-.card{
+
+.card {
     box-sizing: border-box;
     width: 250px;
     background-color: white;
@@ -19,18 +21,69 @@ body{
     justify-content: space-between;
     align-items: center;
 }
-img{
-   width: 200px;
+
+img {
+    width: 200px;
 }
-h1{
+
+h2 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 17px;
 }
-p{
+
+p {
     color: green;
     font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.for-card{
- text-align: start;
+
+.card-info {
+    text-align: start;
+}
+
+.card-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.card-buttons>* {
+    padding: 10px;
+    border-radius: 7px;
+    border: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+}
+
+.view {
+    color: rgb(61, 59, 59);
+    border: 1px solid lightgray;
+}
+
+.add {
+    color: white;
+    background-color: rgb(76, 76, 248);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(58, 56, 56);
+}
+
+.product-filter{
+    display: flex;
+    gap: 15px;
+}
+
+.product-filter>*{
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    outline: none;
 }
