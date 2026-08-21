@@ -1,29 +1,23 @@
 let parentCarts = document.querySelector('.parent-cards')
+let categoriesGroup = document.querySelector('#categories-group')
+let categoryList= []
 
 function generateStarsHtml(rating) {
-    let html = ''
-    const roundedRating = Math.round(rating)
-    
-    for (let i = 1; i <= 5; i++) {
-        if (i <= roundedRating) {
-            html += '<span class="star filled">★</span>'
-        } else {
-            html += '<span class="star">★</span>'
-        }
+  let html = ''
+  const roundedRating = Math.round(rating)
+
+  for (let i = 1; i <= 5; i++) {
+    if (i <= roundedRating) {
+      html += '<span class="star filled">★</span>'
+    } else {
+      html += '<span class="star">★</span>'
     }
-    return html
+  }
+  return html
 }
 
-fetch('https://fakestoreapi.com/products')
-  .then(res => {
-    if (!res.ok) {
-      throw new Error('Error')
-    }
-    return res.json()
-  })
-  .then(products => {
-    products.forEach(product => {
-      let card = document.createElement('div')
+function createProductCard(product){
+  let card = document.createElement('div')
       let cardInfo = document.createElement('div')
       let cardButtons = document.createElement('div')
 
@@ -35,10 +29,16 @@ fetch('https://fakestoreapi.com/products')
       let title = document.createElement('h2')
       let category = document.createElement('span')
       let price = document.createElement('p')
-      
+
+
+      if (!categoryList.includes(product.category)) {
+        categoryList.push(product.category)
+      }
+
+
       let ratingDiv = document.createElement('div')
       ratingDiv.classList.add('product-rating')
-      
+
       const starsHtml = generateStarsHtml(product.rating.rate)
       ratingDiv.innerHTML = `
           <div class="stars-container">${starsHtml}</div> 
@@ -69,9 +69,34 @@ fetch('https://fakestoreapi.com/products')
       cardInfo.append(title, category, price, ratingDiv, cardButtons)
       card.append(img, cardInfo)
       parentCarts.append(card)
+}
 
-      console.log(product)
+fetch('https://fakestoreapi.com/products')
+  .then(res => {
+    if (!res.ok) {
+      throw new Error('Error')
+    }
+    return res.json()
+  })
+  .then(products => {
+    products.forEach(product => {
+      createProductCard(product)
+     
     })
+    categoryList.forEach(group => {
+      let option = document.createElement('option')
+      option.textContent = `${group}`
+      categoriesGroup.append(option)
+    })
+
+     categoriesGroup.addEventListener('change',evt=>{
+        parentCarts.innerHTML=''
+        products.forEach(product=>{
+      if (categoriesGroup.value === '' || product.category === categoriesGroup.value) {
+          createProductCard(product)
+        }
+        })
+      })
   })
   .catch(err => {
     console.log(err.message)

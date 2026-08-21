@@ -142,3 +142,8 @@ h1 {
 .product-rating .rate-count {
     color: #888;
 }
+
+#categories-group{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
