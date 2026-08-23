@@ -4,29 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=shopping_cart" />
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui@5/dist/css/coreui.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui@5/dist/js/coreui.bundle.min.js" defer></script>
     <link rel="stylesheet" href="style.css">
     <script src="index.js" defer></script>
 </head>
 
 <body>
-    <div data-coreui-read-only="true" data-coreui-toggle="rating" data-coreui-value="3"></div>
     <header>
-        <h1>Products</h1>
-        <div class="product-filter">
-            <input type="text" id="search-input">
-              
-            <select id="categories-group">
-              <option value="">All category</option>
-            </select>
-
-            <button id="search-button">Search</button>
-        </div>
+        <h1>MyStore</h1>
+        <span class="material-symbols-outlined">
+            shopping_cart
+        </span>
     </header>
-    <div class="parent-cards">       
-    </div>
+
+    <main>
+        <div class="search-filters-container">
+
+            <div class="search-group">
+                <input type="text" class="search-input" placeholder="search...">
+                <button class="search-btn">Search</button>
+            </div>
+
+            <div class="filters-group">
+
+                <select name="" id="" class="filter-category">
+                    <option value="" disabled selected hidden>Category</option>
+                </select>
+
+                <select name="" id="" class="filter-price">
+                    <option value="" disabled selected hidden>Price</option>
+                </select>
+
+                <select name="" id="" class="filter-sort">
+                    <option value="" disabled selected hidden>Sort</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="parent-cards">
+
+        </div>
+    </main>
 </body>
 
 </html>
