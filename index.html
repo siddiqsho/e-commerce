@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=shopping_cart" />
-    <title>Document</title>
+    <title>ShopSwift</title>
     <link rel="stylesheet" href="style.css">
     <script src="index.js" defer></script>
 </head>
 
 <body>
     <header>
-        <h1>MyStore</h1>
+        <h1 class="web-name">ShopSwift</h1>
         <span class="material-symbols-outlined">
             shopping_cart
         </span>
@@ -23,22 +23,22 @@
         <div class="search-filters-container">
 
             <div class="search-group">
-                <input type="text" class="search-input" placeholder="search...">
-                <button class="search-btn">Search</button>
+                <input type="text" class="form-control search-input" placeholder="Поиск...">
+                <button class="form-control search-btn">Поиск</button>
             </div>
 
             <div class="filters-group">
 
-                <select name="" id="" class="filter-category">
-                    <option value="" disabled selected hidden>Category</option>
+                <select name="category" id="category" class="form-control filter-select filter-category">
+                    <option value=""  selected hidden>Категория</option>
                 </select>
 
-                <select name="" id="" class="filter-price">
-                    <option value="" disabled selected hidden>Price</option>
+                <select name="price" id="price" class="form-control filter-select filter-price">
+                    <option value=""  selected hidden>Цена</option>
                 </select>
 
-                <select name="" id="" class="filter-sort">
-                    <option value="" disabled selected hidden>Sort</option>
+                <select name="sort" id="sort" class="form-control filter-select filter-sort">
+                    <option value=""  selected hidden>Сортировка</option>
                 </select>
             </div>
 

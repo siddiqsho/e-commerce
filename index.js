@@ -1,53 +1,60 @@
-let parentCard=document.querySelector('.parent-cards')
-function createCard(product){
-   let card=document.createElement('div')
+const parentCard = document.querySelector('.parent-cards')
+
+function createCard(product) {
+    const card = document.createElement('div')
     card.classList.add('card')
-    let infoForCard=document.createElement('div')
+
+    const infoForCard = document.createElement('div')
     infoForCard.classList.add('info-for-card')
-    let buttonsCard=document.createElement('div')
+    const buttonsCard = document.createElement('div')
     buttonsCard.classList.add('buttons-card')
 
-    let img=document.createElement('img')
-    let h2=document.createElement('div')
-    h2.classList.add('card-title')
-    let rate=document.createElement('p')
-    let price=document.createElement('p')
+    const img = document.createElement('img')
+    img.classList.add('card-img')
+    const title = document.createElement('div')
+    title.classList.add('card-title')
+    const rate = document.createElement('p')
+    const price = document.createElement('p')
+    price.classList.add('card-price')
 
-    let detailsBtn=document.createElement('div')
+    const detailsBtn = document.createElement('div')
     detailsBtn.classList.add('details-btn')
-    let addBasket=document.createElement('div')
-    addBasket.classList.add('add-basket-btn')
+    const addBasketBtn = document.createElement('div')
+    addBasketBtn.classList.add('add-basket-btn')
 
-    detailsBtn.textContent='👁'
-    addBasket.textContent='Add to basket'
+    detailsBtn.textContent = 'Детали'
+    addBasketBtn.textContent = 'В корзину'
 
-    img.setAttribute('src',`${product.image}`)
-    if(product.title.length>60){
-      h2.textContent=`${product.title.slice(0,60)}...`
-    }else{
-       h2.textContent=`${product.title}`
-    }
-    rate.innerHTML=`<span style="color:yellow">★</span> ${product.rating.rate}`
-    price.textContent=`$${product.price.toFixed(2)}`
+    img.setAttribute('src', `${product.image}`)
 
-    buttonsCard.append(addBasket,detailsBtn)
-    infoForCard.append(h2,rate,price)
-    card.append(img,infoForCard,buttonsCard)
+    if(product.title.length >60){
+         title.textContent=`${product.title.slice(0, 60)}...`
+      }
+      else{
+        title.textContent=`${product.title}`
+      }
+
+    rate.innerHTML = `<span style="color:var(--color-star)">★</span> ${product.rating.rate}`
+    price.textContent = `₽${Math.round(product.price).toLocaleString('ru-RU')}`
+
+    buttonsCard.append(detailsBtn, addBasketBtn)
+    infoForCard.append(title, rate, price)
+    card.append(img, infoForCard, buttonsCard)
     parentCard.append(card)
 }
-fetch('https://fakestoreapi.com/products')
-.then(res=>{
-  if(!res.ok){
-   throw new Error('Error')
-  }
-  return res.json()
-})
-.then(products=>{
-  products.forEach(product => {
-   createCard(product)
-  });
 
-})
-.catch(err=>{
- console.log(err)
-})
+fetch('https://fakestoreapi.com/products')
+    .then(res => {
+        if (!res.ok) {
+            throw new Error('Error')
+        }
+        return res.json()
+    })
+    .then(products => {
+        products.forEach(product => {
+            createCard(product)
+        })
+    })
+    .catch(err => {
+        console.log(err)
+    })
