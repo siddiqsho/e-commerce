@@ -8,7 +8,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=shopping_cart" />
     <title>ShopSwift</title>
     <link rel="stylesheet" href="style.css">
-    <script src="createCrad.js" defer type="module"></script>
+
     <script src="index.js" defer type="module"></script>
 </head>
 
@@ -31,15 +31,17 @@
             <div class="filters-group">
 
                 <select name="category" id="category" class="form-control filter-select filter-category">
-                    <option value=""  selected hidden>Категория</option>
+                    <option value="" selected hidden>Категория</option>
                 </select>
 
                 <select name="price" id="price" class="form-control filter-select filter-price">
-                    <option value=""  selected hidden>Цена</option>
+                    <option value="" selected hidden>Цена</option>
+                    <option value="min">От дешевых к дорогим</option>
+                    <option value="max">От дорогих к дешевым</option>
                 </select>
 
                 <select name="sort" id="sort" class="form-control filter-select filter-sort">
-                    <option value=""  selected hidden>Сортировка</option>
+                    <option value="" selected hidden>Сортировка</option>
                 </select>
             </div>
 
