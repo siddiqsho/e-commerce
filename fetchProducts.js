@@ -3,7 +3,9 @@ import { createCard } from "./createCard.js"
 const DOM = {
     parentCard: document.querySelector('.parent-cards'),
     categorySelector: document.querySelector('#category'),
-    priceSelector: document.querySelector('#price')
+    priceSelector: document.querySelector('#price'),
+    searchInput: document.querySelector('.search-input'),
+    searchBtn: document.querySelector('.search-btn') 
 }
 
 let state = {
@@ -80,11 +82,31 @@ function sortByPrice(products, order) {
     return sortedProduct;
 }
 
+function searchProducts(product, query) {
+    if(!query || query.trim() === '') {
+        return product;
+    }
+    
+    const searchLower = query.toLowerCase().trim();
+
+    return product.filter(product=>{
+        if(product.title.toLowerCase().includes(searchLower)){
+            return true;
+        }
+        if(product.category.toLowerCase().includes(searchLower)){
+            return true;
+        }
+        return false;
+    })
+}
+
 function applyFilters(products) {
     const currentCategory = DOM.categorySelector.value;
     const currentPrice = DOM.priceSelector.value;
+    const currentSearch =DOM.searchInput.value
 
-    const filtered = filterByCategory(products, currentCategory);
+    const searched = searchProducts(products, currentSearch);
+    const filtered = filterByCategory(searched, currentCategory);
     const sorted = sortByPrice(filtered, currentPrice);
 
     renderProducts(sorted);
@@ -100,6 +122,10 @@ function setupEventListeners(products) {
         applyFilters(products);
         saveFiltersToStorage();
     });
+
+    DOM.searchBtn.addEventListener('click',evt=>{
+        applyFilters(products)
+    })
 }
 
 function extractCategories(products) {
@@ -109,6 +135,8 @@ function extractCategories(products) {
 
     return Array.from(categories)
 }
+
+
 
 export function fetchProducts() {
     fetch('https://fakestoreapi.com/products')
