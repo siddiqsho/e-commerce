@@ -1,3 +1,5 @@
+import { createModal } from "./modal.js"
+
 export function createCard(product) {
     const card = document.createElement('div')
     card.classList.add('card')
@@ -34,6 +36,10 @@ export function createCard(product) {
 
     rate.innerHTML = `<span style="color:var(--color-star)">★</span> ${product.rating.rate}`
     price.textContent = `₽${Math.round(product.price).toLocaleString('ru-RU')}`
+
+    detailsBtn.addEventListener('click', () => {
+        createModal(product)
+    })
 
     buttonsCard.append(detailsBtn, addBasketBtn)
     infoForCard.append(title, rate, price)
