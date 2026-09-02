@@ -40,7 +40,11 @@ export function createModal(product) {
     addBasketBtn.classList.add('add-basket-btn', 'modal-basket-btn')
     addBasketBtn.textContent = 'В корзину'
 
-    info.append(category, title, rate, description, price, addBasketBtn)
+    const modalFooter = document.createElement('div')
+    modalFooter.classList.add('modal-footer')
+    modalFooter.append(price, addBasketBtn)
+
+    info.append(category, title, rate, description, modalFooter)
     modal.append(closeBtn, img, info)
     overlay.append(modal)
     document.body.append(overlay)

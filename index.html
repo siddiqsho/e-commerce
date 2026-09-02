@@ -15,16 +15,19 @@
 <body>
     <header>
         <h1 class="web-name">ShopSwift</h1>
-        <span class="material-symbols-outlined">
-            shopping_cart
-        </span>
+        <div class="cart-icon-wrapper">
+            <span class="material-symbols-outlined">
+                shopping_cart
+            </span>
+            <span class="cart-badge" id="cart-badge">0</span>
+        </div>
     </header>
 
     <main>
         <div class="search-filters-container">
 
             <div class="search-group">
-                <input type="text" class="form-control search-input" placeholder="Поиск...">
+                <input type="text" class="form-control search-input" placeholder="Поиск..." >
                 <button class="form-control search-btn">Поиск</button>
             </div>
 
