@@ -1,5 +1,5 @@
 import { createModal } from "./modal.js"
-import { setQuantity, initCard } from "./cart.js"
+import { setQuantity, initCard } from "./basket.js"
 
 export function createCard(product) {
     const card = document.createElement('div')
@@ -45,10 +45,18 @@ export function createCard(product) {
 
     function updateButtonUI() {
         if (count === 0) {
-            addBasketBtn.className = 'add-basket-btn';
+            addBasketBtn.classList.remove('counter-mode');
+            if (!addBasketBtn.classList.contains('add-basket-btn')) {
+                addBasketBtn.classList.add('add-basket-btn');
+            }
             addBasketBtn.textContent = 'В корзину';
+            addBasketBtn.style.display = '';
+            addBasketBtn.style.alignItems = '';
+            addBasketBtn.style.justifyContent = '';
+            addBasketBtn.style.padding = '';
+            addBasketBtn.innerHTML = 'В корзину';
         } else {
-            addBasketBtn.className = 'add-basket-btn counter-mode';
+            addBasketBtn.classList.add('counter-mode');
             addBasketBtn.innerHTML = `
                 <button class="counter-btn minus-btn">-</button>
                 <span class="counter-count">${count}</span>

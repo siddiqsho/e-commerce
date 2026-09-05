@@ -353,9 +353,13 @@ body.modal-open {
 }
 
 @media (max-width: 480px) {
-    .search-group {
-        flex-direction: column;
+   .search-btn {
+        flex: unset;
+        max-width: 100%;
+        min-width: 0;
+        width: 100%;
     }
+    
     .filters-group {
         flex-direction: column;
     }
